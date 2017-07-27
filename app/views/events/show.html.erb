@@ -1,2 +1,6 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h3 class="text-center"><%= @event.image_file_name %></h3>
+<%= link_to "Return to Events Index", events_path %></br>
+<div class="col-xs-12 event_thumb">
+  <%= image_tag @event.image.url %></br>
+  <%= @event.created_at.localtime.strftime("%a, %d %b %Y %I:%M:%S %p") %>
+</div>

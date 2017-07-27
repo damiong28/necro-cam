@@ -1,2 +1,19 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h3 class="text-center">Events</h3>
+
+<div class="row">
+
+  <% @events.each do |e| %>
+    <%= link_to event_path(e), :class=>"event_link" do %>
+      <div class="col-sm-4 col-xs-6 event_thumb">
+        <%= image_tag e.image.url(:medium) %></br>
+        <%= e.image_file_name %></br>
+        <%= e.created_at.localtime.strftime("%a, %d %b %Y %I:%M:%S %p") %>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+
+<div class="footer">
+  <%= paginate @events %>
+</div>

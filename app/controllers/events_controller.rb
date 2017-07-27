@@ -8,10 +8,11 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(event_params)
+    redirect_to event_path(@event)
   end
 
   def index
-    @events = Event.all
+    @events = Event.all.order('created_at DESC').page(params[:page]).per(params[:per_page] || 10)
   end
 
   def show

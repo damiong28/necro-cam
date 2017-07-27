@@ -1,2 +1,11 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<h3 class="text-center">New Event</h3>
+
+
+<%= form_for @event, url: events_path, html: { multipart: true } do |f| %>
+
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+
+  <%= f.submit %>
+
+<% end %>
